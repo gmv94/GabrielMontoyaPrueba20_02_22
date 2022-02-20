@@ -47,6 +47,9 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             }
         }
 
+        /// <summary>
+        /// Insertar información de User en la base de datos (SQL Server)
+        /// </summary>
         private void insertarUsuarios()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
@@ -59,6 +62,9 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             }
         }
 
+        /// <summary>
+        /// Insertar información de Book en la base de datos (SQL Server)
+        /// </summary>
         private void insertarLibros()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
@@ -71,6 +77,9 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             }
         }
 
+        /// <summary>
+        /// Insertar información de CoverPhoto en la base de datos (SQL Server)
+        /// </summary>
         private void insertarCoverPhoto()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
@@ -83,6 +92,9 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             }
         }
 
+        /// <summary>
+        /// Insertar información de Author en la base de datos (SQL Server)
+        /// </summary>
         private void insertarAutor()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
@@ -95,6 +107,9 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             }
         }
 
+        /// <summary>
+        /// Insertar información de Activity en la base de datos (SQL Server)
+        /// </summary>
         private void insertarActividades()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
