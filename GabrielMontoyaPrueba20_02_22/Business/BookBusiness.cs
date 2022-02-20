@@ -11,7 +11,7 @@ namespace GabrielMontoyaPrueba20_02_22.Business
 {
     public class BookBusiness
     {
-        public List<BookEntities> DatosCoverPhoto()
+        public List<BookEntities> DatosBook()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://fakerestapi.azurewebsites.net/api/v1/Books");
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())

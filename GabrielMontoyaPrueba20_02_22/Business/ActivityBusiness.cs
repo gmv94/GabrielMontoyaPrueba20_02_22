@@ -11,7 +11,7 @@ namespace GabrielMontoyaPrueba20_02_22.Business
 {
     public class ActivityBusiness
     {
-        public List<ActivityEntities> DatosCoverPhoto()
+        public List<ActivityEntities> DatosActivity()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://fakerestapi.azurewebsites.net/api/v1/Activities");
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())

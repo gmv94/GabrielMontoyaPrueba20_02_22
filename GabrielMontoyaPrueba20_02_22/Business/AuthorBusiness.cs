@@ -11,7 +11,7 @@ namespace GabrielMontoyaPrueba20_02_22.Business
 {
     public class AuthorBusiness
     {
-        public List<AuthorEntities> DatosCoverPhoto()
+        public List<AuthorEntities> DatosAuthor()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://fakerestapi.azurewebsites.net/api/v1/Authors");
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())

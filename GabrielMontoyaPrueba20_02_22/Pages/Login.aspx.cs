@@ -26,24 +26,87 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
 
         private bool ValidarFormulario()
         {
-            return true;
+            return !string.IsNullOrEmpty(txtUser.Value.Trim())
+                && !string.IsNullOrEmpty(txtPw.Value.Trim());
         }
 
+        /// <summary>
+        /// Llenar datos en la base de datos
+        /// </summary>
         private void InsertarDatosIniciales()
         {
             DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
             var resultadoConsulta = oDBPruebaSE.SpConsultarUsuario();
-            if(resultadoConsulta.ToList().Count > 0)
+            if(resultadoConsulta.ToList().Count == 0)
             {
-                lblConsult.Text = "Registros en la DB";
-                lblConsult.Visible = true;
-            }
-            else
-            {
-                lblConsult.Text = "No hay registros en la DB";
-                lblConsult.Visible = true;
+                insertarUsuarios();
+                insertarLibros();
+                insertarAutor();
+                insertarCoverPhoto();
+                insertarActividades();
             }
         }
+
+        private void insertarUsuarios()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            UserBusiness objUser = new UserBusiness();
+            List<UserEntities> users = objUser.DatosUser();
+
+            foreach (var item in users)
+            {
+                oDBPruebaSE.SpInsertarUser(item.id, item.userName, item.password);
+            }
+        }
+
+        private void insertarLibros()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            BookBusiness objBook = new BookBusiness();
+            List<BookEntities> books = objBook.DatosBook();
+
+            foreach (var item in books)
+            {
+                oDBPruebaSE.SpInsertarBook(item.id, item.title, item.description, item.pageCount, item.excerpt, item.publishDate);
+            }
+        }
+
+        private void insertarCoverPhoto()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            CoverPhotoBusiness objPhoto = new CoverPhotoBusiness();
+            List<CoverPhotoEntities> coverPhotos = objPhoto.DatosCoverPhoto();
+
+            foreach (var item in coverPhotos)
+            {
+                oDBPruebaSE.SpInsertarCoverPhoto(item.id, item.idBook, item.url);
+            }
+        }
+
+        private void insertarAutor()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            AuthorBusiness objAutor = new AuthorBusiness();
+            List<AuthorEntities> authors = objAutor.DatosAuthor();
+
+            foreach (var item in authors)
+            {
+                oDBPruebaSE.SpAuthor(item.id, item.idBook, item.firstName, item.lastName);
+            }
+        }
+
+        private void insertarActividades()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            ActivityBusiness objActividades = new ActivityBusiness();
+            List<ActivityEntities> activities = objActividades.DatosActivity();
+
+            foreach (var item in activities)
+            {
+                oDBPruebaSE.SpInsertarActivity(item.id, item.title, item.dueDate, item.completed);
+            }
+        }
+
 
         /// <summary>
         /// Consulta el usuario ingresado en los usuarios del API
@@ -76,8 +139,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
                 {
                     if(ConsultarUsuario())
                     {
-                        lblConsult.Text = "El usuario existe!";
-                        lblConsult.Visible = true;
+                        Response.Redirect("/Pages/Consultas");
                     }
                     else
                     {

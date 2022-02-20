@@ -99,6 +99,7 @@
       <DependentUpon>modelSE.edmx</DependentUpon>
       <LastGenOutput>modelSE.cs</LastGenOutput>
     </Content>
+    <Content Include="Pages\Consultas.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,6 +138,13 @@
     </Compile>
     <Compile Include="Models\SpConsultaPorLibro_Result.cs">
       <DependentUpon>modelSE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Consultas.aspx.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Consultas.aspx.designer.cs">
+      <DependentUpon>Consultas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
