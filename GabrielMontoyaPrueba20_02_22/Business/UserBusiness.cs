@@ -23,5 +23,19 @@ namespace GabrielMontoyaPrueba20_02_22.Business
                 return Users;
             }
         }
+
+        public UserEntities ConsultarDatosUser(int id)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://fakerestapi.azurewebsites.net/api/v1/Users/"+id);
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                var json = reader.ReadToEnd();
+                UserEntities User = JsonConvert.DeserializeObject<UserEntities>(json);
+                return User;
+            }
+        }
+
     }
 }

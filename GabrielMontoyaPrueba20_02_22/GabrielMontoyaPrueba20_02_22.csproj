@@ -85,9 +85,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business2\DatosAPI.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Business\ActivityBusiness.cs" />
+    <Compile Include="Business\AuthorBusiness.cs" />
+    <Compile Include="Business\BookBusiness.cs" />
+    <Compile Include="Business\CoverPhotoBusiness.cs" />
     <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="Entities\ActivityEntities.cs" />
+    <Compile Include="Entities\AuthorEntities.cs" />
+    <Compile Include="Entities\BookEntities.cs" />
+    <Compile Include="Entities\CoverPhotoEntities.cs" />
     <Compile Include="Entities\UserEntities.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

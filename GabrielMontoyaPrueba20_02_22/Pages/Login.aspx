@@ -10,7 +10,6 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <asp:label text="" id="lblRoleID" style="display:none;" runat="server" />
             <div class="row">
                 <div class="mb-3">
                     <label for="txtUser" class="form-label">* User</label>

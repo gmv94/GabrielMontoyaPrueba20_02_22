@@ -6,7 +6,6 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using GabrielMontoyaPrueba20_02_22.API;
 using Newtonsoft.Json;
 using GabrielMontoyaPrueba20_02_22.Business;
 using GabrielMontoyaPrueba20_02_22.Entities;
@@ -19,6 +18,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
         {
             if(!IsPostBack)
             {
+
             }
         }
 
@@ -40,6 +40,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             {
                 if (item.userName == txtUser.Value
                     || item.password == txtPw.Value)
+                    Session["id"] = item.id;
                     return true;
             }
             return false;
