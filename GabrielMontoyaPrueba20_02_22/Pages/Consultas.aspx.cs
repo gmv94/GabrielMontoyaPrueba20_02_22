@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using GabrielMontoyaPrueba20_02_22.Models;
 using GabrielMontoyaPrueba20_02_22.Entities;
 using GabrielMontoyaPrueba20_02_22.Business;
+using System.Data;
 
 namespace GabrielMontoyaPrueba20_02_22.Pages
 {
@@ -134,6 +135,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
         /// <param name="e"></param>
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
+            lblConsult.Visible = false;
             if(validarFormulario())
             {
                 if (ddlTipoConsulta.SelectedValue == "1")
@@ -149,6 +151,8 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
             {
                 lblConsult.Text = "Por favor indicar los datos requeridos";
                 lblConsult.Visible = true;
+                gvwLibro.DataSource = new DataTable();
+                gvwLibro.DataBind();
             }
             
         }

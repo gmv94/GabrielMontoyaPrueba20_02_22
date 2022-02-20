@@ -39,6 +39,9 @@
                 </div>
             </div>
         </div>
+        <div class="row" visible="false" style="color: red">
+            <asp:Label Text="" Visible="false" ID="lblConsult" runat="server" />
+        </div>
         <div class="row">
             <div>
                 <asp:GridView ID="gvwLibro" runat="server" CssClass="table table-striped jambo_table bulk_action"
@@ -54,9 +57,7 @@
                 </asp:GridView>
             </div>
         </div>
-        <div class="row" visible="false" style="color: red">
-            <asp:Label Text="" Visible="false" ID="lblConsult" runat="server" />
-        </div>
+        
     </form>
 </body>
 </html>
