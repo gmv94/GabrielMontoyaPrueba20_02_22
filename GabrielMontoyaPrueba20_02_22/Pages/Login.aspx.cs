@@ -154,7 +154,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
                 {
                     if(ConsultarUsuario())
                     {
-                        Response.Redirect("/Pages/Consultas");
+                        Response.Redirect("/Pages/Consultas.aspx");
                     }
                     else
                     {

@@ -113,6 +113,7 @@
     <Compile Include="Entities\ActivityEntities.cs" />
     <Compile Include="Entities\AuthorEntities.cs" />
     <Compile Include="Entities\BookEntities.cs" />
+    <Compile Include="Entities\ConsultaLibroEntities.cs" />
     <Compile Include="Entities\CoverPhotoEntities.cs" />
     <Compile Include="Entities\UserEntities.cs" />
     <Compile Include="Global.asax.cs">
