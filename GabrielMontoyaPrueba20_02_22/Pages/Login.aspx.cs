@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using GabrielMontoyaPrueba20_02_22.Business;
 using GabrielMontoyaPrueba20_02_22.Entities;
+using GabrielMontoyaPrueba20_02_22.Models;
 
 namespace GabrielMontoyaPrueba20_02_22.Pages
 {
@@ -18,7 +19,7 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
         {
             if(!IsPostBack)
             {
-
+                InsertarDatosIniciales();
             }
         }
 
@@ -26,6 +27,22 @@ namespace GabrielMontoyaPrueba20_02_22.Pages
         private bool ValidarFormulario()
         {
             return true;
+        }
+
+        private void InsertarDatosIniciales()
+        {
+            DBPruebaSEEntities oDBPruebaSE = new DBPruebaSEEntities();
+            var resultadoConsulta = oDBPruebaSE.SpConsultarUsuario();
+            if(resultadoConsulta.ToList().Count > 0)
+            {
+                lblConsult.Text = "Registros en la DB";
+                lblConsult.Visible = true;
+            }
+            else
+            {
+                lblConsult.Text = "No hay registros en la DB";
+                lblConsult.Visible = true;
+            }
         }
 
         /// <summary>

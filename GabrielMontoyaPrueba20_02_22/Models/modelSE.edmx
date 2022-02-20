@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBPruebaSEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="SpAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="idBook" Type="int" Mode="In" />
+          <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpConsultaPorAutor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpConsultaPorLibro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpConsultarUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SpInsertarActivity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+          <Parameter Name="dueDate" Type="nvarchar" Mode="In" />
+          <Parameter Name="completed" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="SpInsertarBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+          <Parameter Name="description" Type="nvarchar" Mode="In" />
+          <Parameter Name="pageCount" Type="int" Mode="In" />
+          <Parameter Name="excerpt" Type="nvarchar" Mode="In" />
+          <Parameter Name="publishDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpInsertarCoverPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="idBook" Type="int" Mode="In" />
+          <Parameter Name="url" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SpInsertarUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nameUser" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DBPruebaSEModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBPruebaSEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBPruebaSEEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="SpAuthor">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="idBook" Mode="In" Type="Int32" />
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpConsultaPorAutor" ReturnType="Collection(DBPruebaSEModel.SpConsultaPorAutor_Result)">
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpConsultaPorLibro" ReturnType="Collection(DBPruebaSEModel.SpConsultaPorLibro_Result)">
+            <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpConsultarUsuario" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="SpInsertarActivity">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="dueDate" Mode="In" Type="String" />
+            <Parameter Name="completed" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="SpInsertarBook">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="description" Mode="In" Type="String" />
+            <Parameter Name="pageCount" Mode="In" Type="Int32" />
+            <Parameter Name="excerpt" Mode="In" Type="String" />
+            <Parameter Name="publishDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpInsertarCoverPhoto">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="idBook" Mode="In" Type="Int32" />
+            <Parameter Name="url" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SpInsertarUser">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="nameUser" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SpConsultaPorAutor_Result">
+          <Property Type="String" Name="title" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="publishDate" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="pageCount" Nullable="true" />
+          <Property Type="String" Name="excerpt" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="81" />
+        </ComplexType>
+        <ComplexType Name="SpConsultaPorLibro_Result">
+          <Property Type="String" Name="title" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="publishDate" Nullable="true" MaxLength="40" />
+          <Property Type="Int32" Name="pageCount" Nullable="true" />
+          <Property Type="String" Name="excerpt" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Author" Nullable="true" MaxLength="81" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBPruebaSEModelStoreContainer" CdmEntityContainer="DBPruebaSEEntities" >
+          <FunctionImportMapping FunctionImportName="SpAuthor" FunctionName="DBPruebaSEModel.Store.SpAuthor" />
+          <FunctionImportMapping FunctionImportName="SpConsultaPorAutor" FunctionName="DBPruebaSEModel.Store.SpConsultaPorAutor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBPruebaSEModel.SpConsultaPorAutor_Result">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="publishDate" ColumnName="publishDate" />
+                <ScalarProperty Name="pageCount" ColumnName="pageCount" />
+                <ScalarProperty Name="excerpt" ColumnName="excerpt" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpConsultaPorLibro" FunctionName="DBPruebaSEModel.Store.SpConsultaPorLibro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBPruebaSEModel.SpConsultaPorLibro_Result">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="publishDate" ColumnName="publishDate" />
+                <ScalarProperty Name="pageCount" ColumnName="pageCount" />
+                <ScalarProperty Name="excerpt" ColumnName="excerpt" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpConsultarUsuario" FunctionName="DBPruebaSEModel.Store.SpConsultarUsuario" />
+          <FunctionImportMapping FunctionImportName="SpInsertarActivity" FunctionName="DBPruebaSEModel.Store.SpInsertarActivity" />
+          <FunctionImportMapping FunctionImportName="SpInsertarBook" FunctionName="DBPruebaSEModel.Store.SpInsertarBook" />
+          <FunctionImportMapping FunctionImportName="SpInsertarCoverPhoto" FunctionName="DBPruebaSEModel.Store.SpInsertarCoverPhoto" />
+          <FunctionImportMapping FunctionImportName="SpInsertarUser" FunctionName="DBPruebaSEModel.Store.SpInsertarUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
